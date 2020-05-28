@@ -24,8 +24,11 @@ export class AppComponent {
 
   model: any = {};
 
-  addEmployee(): void {}
-  deleteEmployee(): void {}
-  editEmployee(): void {}
+  addEmployee(): void {
+    this.employees.push(this.model);
+  }
+
+  deleteEmployee(i): void {}
+  editEmployee(i): void {}
   updateEmployee(): void {}
 }
