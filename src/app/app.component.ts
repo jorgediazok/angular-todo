@@ -33,10 +33,16 @@ export class AppComponent {
   addEmployee(): void {
     this.employees.push(this.model);
     this.model = {};
-    this.msg = 'Record is succesfully Delete';
+    this.msg = 'Record is succesfully added';
   }
 
-  deleteEmployee(i): void {}
+  deleteEmployee(i): void {
+    let answer = confirm('are you sure you want to delete this element?');
+    if (answer) {
+      this.employees.splice(i, 1);
+      this.msg = 'Record is succesfully deleted';
+    }
+  }
 
   myValue;
   editEmployee(i): void {
@@ -46,6 +52,13 @@ export class AppComponent {
     this.myValue = i;
   }
   updateEmployee(): void {
-    console.log(this.model2);
+    let i = this.myValue;
+    for (let j = 0; j < this.employees.length; j++) {
+      if (i === j) {
+        this.employees[i] = this.model2;
+        this.model2 = {};
+        this.msg = 'Record is succesfully updated';
+      }
+    }
   }
 }
