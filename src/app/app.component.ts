@@ -8,26 +8,28 @@ import { EmailValidator } from '@angular/forms';
 })
 export class AppComponent {
   title: string = 'Angular Crud';
-  employees: [
+
+  employees = [
     {
-      name: 'Mia Malkova';
-      position: 'manager';
-      email: 'email@email.com';
+      name: 'Mia Malkova',
+      position: 'manager',
+      email: 'email@email.com',
     },
     {
-      name: 'Sasha Grey';
-      position: 'senior dv';
-      email: 'email2@email.com';
+      name: 'Sasha Grey',
+      position: 'senior dv',
+      email: 'email2@email.com',
     },
     {
-      name: 'Anna Molly';
-      position: 'junior dv';
-      email: 'email3@email.com';
-    }
+      name: 'Anna Molly',
+      position: 'junior dv',
+      email: 'email3@email.com',
+    },
   ];
 
   model: any = {};
   model2: any = {};
+  hideUpdate: boolean = true;
   msg: string = '';
 
   addEmployee(): void {
@@ -46,6 +48,7 @@ export class AppComponent {
 
   myValue;
   editEmployee(i): void {
+    this.hideUpdate = false;
     this.model2.name = this.employees[i].name;
     this.model2.position = this.employees[i].position;
     this.model2.email = this.employees[i].email;
@@ -60,5 +63,8 @@ export class AppComponent {
         this.msg = 'Record is succesfully updated';
       }
     }
+  }
+  closeAlert(): void {
+    this.msg = '';
   }
 }

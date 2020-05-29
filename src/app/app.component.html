@@ -4,11 +4,11 @@
       <h1 class="text-center">{{ title }}</h1>
     </div>
     <div class="col-sm4">
-      <div class="alert alert-success alert-dismissible">
-        <a href="#" class="close">
+      <div class="alert alert-success alert-dismissible" *ngIf="msg">
+        <a href="#" class="close" (click)="closeAlert()">
           &times;
         </a>
-        message here
+        {{ msg }}
       </div>
     </div>
   </div>
@@ -112,7 +112,7 @@
       </table>
     </div>
 
-    <div class="col-sm-4">
+    <div class="col-sm-4" [hidden]="hideUpdate">
       <h2>Update Data:</h2>
       <form class="form-horizontal">
         <div class="form-group">
